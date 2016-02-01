@@ -73,3 +73,6 @@ For each basic block b,
     t = x+y
   replace every ofiginal x+y by t
 ```
+
+# Partial Redundant Assignment Elimination (PRAE)
+An assignment instance a<sub>i</sub> ('x = e') is considered redundant if all paths from Start to a<sub>i</sub> has seen an instance of 'a', a<sub>j</sub> and there are no statements between a<sub>i</sub> and a<sub>j</sub> which re-define the variable _x_ or the operand of the expression _e_
