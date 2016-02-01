@@ -12,10 +12,32 @@ Immediate dominance relationships form a tree.
 
 ### Finding dominators dataflow analysis
 
+|                 | Finding dominators                                               |
+| --------------- | ---------------------------------------------------------------- |
+| Domain          | Sets of basic blocks                                             |
+| Direction       | forward                                                          |
+| Transfer f(x)   | f<sub>b</sub>(x) = x ∪ {b}                                       |
+| Meet            | ∩                                                                |
+| Boundary        | {entry}                                                          |
+| Initialization  | out[b] = {all blocks}                                            |
+
+**Speed:** With reverse post order it can be resolved in 1 pass for most flow graphs (reducible flow graphs)
+
 ## Natural loops
 
 **header (_d_)**:  is the single entry of the loop. The header dominates all nodes in the loop
 
 **back edge (_n_ → _d_)** is an edge whose destination dominates its source (_d_ dominates _n_)
 
-**natural loop of a back edge (_n_ → _d_)** is d + {nodes that can reach _n_ without going through _d_}
+**natural loop of a back edge (_n_ → _d_)** is d + {nodes that can reach _n_ without going through _d_}. 
+
+### Finding natural loops.
+
+1. Compute the dominators tree
+2. Identify the *back edges* in the graph (where a nodes goes back to it's dominator)
+2. Now remove _d_ from graph and find all predecessors of _n_. That is nodes that can reach _n_ without going through _d_
+
+### Inner loops
+If to loops don't have the same header:
+ * They are either disjoint or
+ * One is entirely contained (nested) within the other
