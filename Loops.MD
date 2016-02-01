@@ -21,7 +21,7 @@ Immediate dominance relationships form a tree.
 | Boundary        | {entry}                                                          |
 | Initialization  | out[b] = {all blocks}                                            |
 
-**Speed:** With reverse post order it can be resolved in 1 pass for most flow graphs (reducible flow graphs)
+**Speed:** With _reverse post order_ it can be resolved in 1 pass for most flow graphs (reducible flow graphs)
 
 ## Natural loops
 
