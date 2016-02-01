@@ -60,3 +60,16 @@ Eliminate temporary variable assignments unused beyond current block
 | Meet            | ∪                                                                |
 | Boundary        | in[exit] = ∅                                                     |
 | Initialization  | in[b] = ∅                                                        |
+
+### Code transformation
+
+```
+For each basic block b,
+ if (x+y) ∈ (latest[b] ∩ ¬ used.out[b]) {}
+ else 
+  if x+y ∈ latest[b]
+   at beginning of b:
+    create a new variable t
+    t = x+y
+  replace every ofiginal x+y by t
+```
