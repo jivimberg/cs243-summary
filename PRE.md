@@ -4,7 +4,7 @@
 Add a basic block for every edge that leads to a basic block with multiple predecessors
 
 ### Pass 1: Anticipated Expressions
-An expression is *anticipated at p* if its value computed at point p will be used along *all* subsequent paths
+An expression is **anticipated at p** if its value computed at point p will be used along **all** subsequent paths
 
 |                 | Anticipated Expressions                                          |
 | --------------- | ---------------------------------------------------------------- |
@@ -16,7 +16,7 @@ An expression is *anticipated at p* if its value computed at point p will be use
 | Initialization  | in[b] = {all expressions}                                        |
 
 ### Pass 2: Place as early as possible
-e will be *available at p* if e has been anticipated but not subsequently killed on *all* paths reaching p
+e will be **available at p** if e has been anticipated but not subsequently killed on **all** paths reaching p
 
 |                 | Available Expressions                                            |
 | --------------- | ---------------------------------------------------------------- |
@@ -30,7 +30,7 @@ e will be *available at p* if e has been anticipated but not subsequently killed
 > earliest(b) = anticipated[b].in - available[b].in
 
 ### Pass 3: Lazy code motion
-An expression e is *postponable at p* if *all* paths leading to p have seen the earliest placement of e but not a subsequent use
+An expression e is **postponable at p** if **all** paths leading to p have seen the earliest placement of e but not a subsequent use
 
 |                 | Postponable Expressions                                          |
 | --------------- | ---------------------------------------------------------------- |
