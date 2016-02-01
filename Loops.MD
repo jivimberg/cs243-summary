@@ -38,6 +38,8 @@ Immediate dominance relationships form a tree.
 2. Now remove _d_ from graph and find all predecessors of _n_. That is nodes that can reach _n_ without going through _d_
 
 ### Inner loops
-If to loops don't have the same header:
+If 2 loops don't have the same header:
  * They are either disjoint or
  * One is entirely contained (nested) within the other
+  
+If 2 loops share the same header is hard to tell which is the inner loop, so we just combine them as one. 
