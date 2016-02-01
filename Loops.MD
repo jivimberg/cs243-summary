@@ -25,11 +25,9 @@ Immediate dominance relationships form a tree.
 
 ## Natural loops
 
-**header (_d_)**:  is the single entry of the loop. The header dominates all nodes in the loop
-
-**back edge (_n_ → _d_)** is an edge whose destination dominates its source (_d_ dominates _n_)
-
-**natural loop of a back edge (_n_ → _d_)** is d + {nodes that can reach _n_ without going through _d_}. 
+* **header (_d_)**:  is the single entry of the loop. The header dominates all nodes in the loop
+* **back edge (_n_ → _d_)** is an edge whose destination dominates its source (_d_ dominates _n_)
+* **natural loop of a back edge (_n_ → _d_)** is d + {nodes that can reach _n_ without going through _d_}. 
 
 ### Finding natural loops.
 
