@@ -10,6 +10,8 @@ Node _d_ **immediately dominates** node _n_ if:
   
 Immediate dominance relationships form a tree.
 
+The **dominance frontier** of a node _d_ is the set of all nodes _n_ such that _d_ dominates an immediate predecessor of _n_, but _d_ does not strictly dominate _n_. It is the set of nodes where d's dominance stops.
+
 ### Finding dominators dataflow analysis
 
 |                 | Finding dominators                                               |
