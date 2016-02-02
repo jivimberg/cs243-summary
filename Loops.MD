@@ -1,7 +1,7 @@
 # Loops
 
 ## Dominators
-Node _d_ dominates node _n_ if every path from the start node to _n_ goes through _d_
+Node _d_ **dominates** node _n_ if every path from the start node to _n_ goes through _d_
 
 Node _d_ **immediately dominates** node _n_ if:
   * _d_ dominates _n_
