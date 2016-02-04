@@ -30,7 +30,9 @@ e will be **available at p** if e has been anticipated but not subsequently kill
 > earliest(b) = anticipated[b].in - available[b].in
 
 ### Pass 3: Lazy code motion
-An expression e is **postponable at p** if **all** paths leading to p have seen the earliest placement of e but not a subsequent use
+An expression e is **postponable at p** if **all** paths leading to p have seen the earliest placement of e but not a subsequent use.
+
+In other words an expression is **postponable** to the exit of block B if it is not used in the block, and either it is postponable to the entry of B or it is in earliest[B].
 
 |                 | Postponable Expressions                                          |
 | --------------- | ---------------------------------------------------------------- |
