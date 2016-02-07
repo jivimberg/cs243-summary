@@ -4,6 +4,7 @@ This repository contains summaries and cheatsheets of the topics studied on CS24
 Winter 2016. Feel free to contribute!
 
 ## Content
+* [Dataflow Analysis](DataflowAnalysis.md)
 * [Loops](Loops.md)
 * [Partial Redundancy Elimination (PRE)](PRE.md)
 
