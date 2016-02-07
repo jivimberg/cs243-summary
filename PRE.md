@@ -3,6 +3,8 @@
 ### Preparing the flow graph
 Add a basic block for every edge that leads to a basic block with multiple predecessors
 
+**Intuition optimization:** You don't need to add the extra block if the previous block is empty and doesn't have multiple sucessors. 
+
 ### Pass 1: Anticipated Expressions
 An expression is **anticipated at p** if its value computed at point p will be used along **all** subsequent paths
 
