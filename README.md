@@ -7,4 +7,5 @@ Winter 2016. Feel free to contribute!
 * [Dataflow Analysis](DataflowAnalysis.md)
 * [Loops](Loops.md)
 * [Partial Redundancy Elimination (PRE)](PRE.md)
+* [Register Allocation](RegisterAllocation.md)
 
