@@ -1,5 +1,15 @@
 #Dataflow Analysis
 
+### Identifying basic blocks
+
+```
+1. Find leaders:
+  a. The first instruction of the program is a leader
+  b. Any instruction that is the target of a conditional or unconditional jump is a leader.
+  c. Any instruction that immediately follows a conditional or unconditional jump is a leader.
+2. Then, for each leader, its basic block consists of itself and all instructions up to but not including the next leader or the end of the intermediate program
+```
+
 ### Meet semi-lattice
 
 ![semilattice example](/images/semilatticeExample.png)
