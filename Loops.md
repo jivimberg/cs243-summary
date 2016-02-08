@@ -21,7 +21,7 @@ The **dominance frontier** of a node _d_ is the set of all nodes _n_ such that _
 | Transfer f(x)   | f<sub>b</sub>(x) = x ∪ {b}                                       |
 | Meet            | ∩                                                                |
 | Boundary        | {entry}                                                          |
-| Initialization  | out[b] = {all blocks}                                            |
+| Initialization  | in[b] = {all blocks}                                            |
 
 **Speed:** With _reverse post order_ it can be resolved in 1 pass for most flow graphs (reducible flow graphs)
 
