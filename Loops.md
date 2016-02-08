@@ -31,6 +31,8 @@ The **dominance frontier** of a node _d_ is the set of all nodes _n_ such that _
 * **back edge (_n_ → _d_)** is an edge whose destination dominates its source (_d_ dominates _n_)
 * **natural loop of a back edge (_n_ → _d_)** is d + {nodes that can reach _n_ without going through _d_}. 
 
+A flow graph is **reducible** if every retreating edge that flow graph is a back edge.
+
 ### Finding natural loops.
 
 1. Compute the dominators tree
