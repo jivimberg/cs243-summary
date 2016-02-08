@@ -17,6 +17,8 @@ An expression is **anticipated at p** if its value computed at point p will be u
 | Boundary        | in[exit] = ∅                                                     |
 | Initialization  | in[b] = {all expressions}                                        |
 
+The expression is killed if one of it's components it's recomputed.
+
 ### Pass 2: Place as early as possible
 e will be **available at p** if e has been anticipated but not subsequently killed on **all** paths reaching p
 
