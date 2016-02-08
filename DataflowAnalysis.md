@@ -44,6 +44,29 @@ A framework is **distributive** iff f(x ∧ y)= f(x) ∧ f(y).
 
 In other words doing the meet early yields the same result than doing it late.
 
+### Convergence
+
+Given:
+* ∧ and monotone framework
+* Finite descending chain
+
+**It converges**
+
+**IDEAL solution:** ∧f<sub>pi</sub> for all possibly executed paths. But determining all possible execution paths **is undecidable.**
+
+**Meet over all possible paths (MOP)** We assume that every edge is traversed. We do the composition for each path and then meet all the paths. 
+
+So MOP = IDEAL ∧ Result (unexecuted paths). Therefore MOP ≤ IDEAL, smaller solution, more conservative, safe.
+
+**Maximun fix point (MFP)**: We meet early after applying the transfer function.
+
+| FP ≤ MFP ≤ MOP ≤ IDEAL |
+|------------------------|
+
+All the fix point solutions are safe because they are smaller than the IDEAL
+
+If *distributive* ⇒ MOP = MFP
+
 ## Reaching definitions
 
 A definition **_d_ reaches a point _p_** if there exists path from the point immediately following _d_ to _p_ such that d is not killed (overwritten) along that path.
