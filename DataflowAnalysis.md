@@ -14,9 +14,11 @@
 
 ![semilattice example](/images/semilatticeExample.png)
 
-A meet semi-lattice is **bounded** if there exists a top element _T_, suchthat x ∧ T =  x for all x.
+**Top element** _T_, suchthat x ∧ T =  x for all x.
 
-bottom element ⊥, if x ∧ ⊥ = ⊥ for all x.
+**Bottom element** ⊥, if x ∧ ⊥ = ⊥ for all x.
+
+A meet semi-lattice is **bounded** if there exists a **top element**
 
 ### Properties of the meet operator
 
