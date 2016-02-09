@@ -33,6 +33,8 @@ The **dominance frontier** of a node _d_ is the set of all nodes _n_ such that _
 
 A flow graph is **reducible** if every retreating edge that flow graph is a back edge.
 
+The **depth** of a flow graph is the greatest number of retreating edges along any acyclic path.
+
 ### Finding natural loops.
 
 1. Compute the dominators tree
