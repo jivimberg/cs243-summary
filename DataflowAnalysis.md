@@ -128,10 +128,26 @@ Live range = Live variable ∩ Reaching definition
 | Direction       | forwards                                                         |
 | Transfer f(x)   | f<sub>b</sub>(x) = Gen<sub>b</sub> ∪ (x - Kills<sub>b</sub>)     |
 | Meet            | ∩                                                                |
-| Boundary        | in[exit] = ∅                                                     |
-| Initialization  | in[b] = ∅                                                        |
+| Boundary        | out[entry] = ∅                                                   |
+| Initialization  | out[b] = U                                                       |
 
 ### Constant propagation
+
+Replaces expressions that evaluate to the same constant every time they are executed.
+
+**Semilattice**
+
+![semilattice for constant propagation](/images/semilatticeCP.png)
+
+**Transfer function**
+
+![transfer function for constant propagation](/images/transferFunctionCP.png)
+
+Transfer function for _x = y + z_
+
+![transfer function for x = y + z](/images/transferFunctionForX=Y+Z.png)
+
+Constant Propagation is **not distributive**.
 
 ### Lock
 
