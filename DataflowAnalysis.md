@@ -133,3 +133,5 @@ Using **reverse post-order** you'll delay visiting the farthest node
   * Constant propagation 
   
 If the cycles don't matter, and the framework is monotone, the maximum number of iterations in a data flow algorithm is _Loop depth + 2_. Where **Loop depth** is the max number of retreating edges in any acyclic path.
+
+For other types of analysis the algorithm is guaranteed to converge after a number of rounds no greater than the **product of the height of the lattice and the number of nodes of the  flow graph**
