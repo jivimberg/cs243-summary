@@ -125,9 +125,9 @@ Live range = Live variable ∩ Reaching definition
 |                 | Available expressions                                            |
 | --------------- | ---------------------------------------------------------------- |
 | Domain          | Sets of variables                                                |
-| Direction       | backwards                                                        |
-| Transfer f(x)   | f<sub>b</sub>(x) = Use<sub>b</sub> ∪ (x - Def<sub>b</sub>)       |
-| Meet            | ∪                                                                |
+| Direction       | forwards                                                         |
+| Transfer f(x)   | f<sub>b</sub>(x) = Gen<sub>b</sub> ∪ (x - Kills<sub>b</sub>)     |
+| Meet            | ∩                                                                |
 | Boundary        | in[exit] = ∅                                                     |
 | Initialization  | in[b] = ∅                                                        |
 
