@@ -126,6 +126,8 @@ Live range = Live variable ∩ Reaching definition
 
 ### Null check
 
+### Dead code elimination
+
 ## Speed
 
 Convergence speed dependends on the order you visit the nodes.
