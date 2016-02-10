@@ -113,3 +113,23 @@ A variable **_v_ is live at point _p_** if the value of _v_ is used along some p
 ## Live Range
 
 Live range = Live variable ∩ Reaching definition
+
+## Speed
+
+Convergence speed dependends on the order you visit the nodes.
+
+For _acyclic graphs_ on _forward analysis_ you want to do it using **topological sort**, where you only visit one node after having visit all it's predecessors. 
+
+* **Pre-order**: First visit a node then it's children
+* **Post-order**: First visit the children before visiting the parent.
+
+Using **reverse post-order** you'll delay visiting the farthest node
+
+* For some analysis cycles don't make a difference, examples:
+  * Reaching definitions   
+  * Live variable
+  * Available expressions
+* For others they do. examples:
+  * Constant propagation 
+  
+If the cycles don't matter, and the framework is monotone, the maximum number of iterations in a data flow algorithm is _Loop depth + 2_. Where **Loop depth** is the max number of retreating edges in any acyclic path.
