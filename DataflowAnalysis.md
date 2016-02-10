@@ -58,6 +58,8 @@ A framework is **distributive** iff f(x ∧ y)= f(x) ∧ f(y).
 
 In other words doing the meet early yields the same result than doing it late.
 
+//TODO **How to test for distributive?**
+
 ### Convergence
 
 Given:
