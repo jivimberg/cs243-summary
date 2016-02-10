@@ -81,7 +81,11 @@ All the fix point solutions are safe because they are smaller than the IDEAL
 
 If *distributive* ⇒ MOP = MFP
 
-## Reaching definitions
+### About initialization
+
+## Analysis seen in class
+
+### Reaching definitions
 
 A definition **_d_ reaches a point _p_** if there exists path from the point immediately following _d_ to _p_ such that d is not killed (overwritten) along that path.
 
@@ -96,7 +100,7 @@ A definition **_d_ reaches a point _p_** if there exists path from the point imm
 
 where Kill[s] = set of all other defs to x in the rest of program
 
-## Live variable analysis
+### Live variable analysis
 
 A variable **_v_ is live at point _p_** if the value of _v_ is used along some path in the flow graph starting at _p_.
 
@@ -110,19 +114,19 @@ A variable **_v_ is live at point _p_** if the value of _v_ is used along some p
 | Initialization  | in[b] = ∅                                                        |
 
 
-## Live Range
+### Live Range
 
 Live range = Live variable ∩ Reaching definition
 
-## Available Expressions
+### Available Expressions
 
-## Constant propagation
+### Constant propagation
 
-## Lock
+### Lock
 
-## Null check
+### Null check
 
-# Speed
+## Speed
 
 Convergence speed dependends on the order you visit the nodes.
 
