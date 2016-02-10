@@ -114,7 +114,15 @@ A variable **_v_ is live at point _p_** if the value of _v_ is used along some p
 
 Live range = Live variable ∩ Reaching definition
 
-## Speed
+## Available Expressions
+
+## Constant propagation
+
+## Lock
+
+## Null check
+
+# Speed
 
 Convergence speed dependends on the order you visit the nodes.
 
