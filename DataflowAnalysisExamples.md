@@ -87,7 +87,7 @@ Both analysis are **monotone** and **distributive**.
 
 ##  Uninitialized variables
 
-|                 | Available expressions                                            |
+|                 | Uninitialized variables                                          |
 | --------------- | ---------------------------------------------------------------- |
 | Domain          | Sets of variables                                                |
 | Direction       | forwards                                                         |
@@ -106,10 +106,46 @@ Both analysis are **monotone** and **distributive**.
 
 ## Null check
 
-## Dead code elimination
+## Dead code elimination (aka Faint variables)
+
+Any assignments or addition that do not contribute to the computation of the variables used in output and conditional statements should be eliminated
+
+|                 | Dead code elimination                                            |
+| --------------- | ---------------------------------------------------------------- |
+| Domain          | Sets of variables (variables that will be used in the computation of a branch or output statement |
+| Direction       | backward                                                         |
+| Transfer f(x)   | _see below_                                                      |
+| Meet            | _see lattice_                                                    |
+| Boundary        | in[Exit] initialized to top (empty set)                          |                                  
+| Initialization  | all interior nodes initialized to top (empty set)                |
+
+**Transfer function**
+
+Given an input set of variables keep everything the same but:
+* if output(x): add x to the set
+* if x1 = x2: Add x2 to the set if x1 is in the set. _Remove x1 from the set if present_.
+* if x1 = x2 + x3: Add x2 and x3 to the set if x1 is in the set.  _Remove x1 from the set if present_.
+* if (x) goto L: Add x to the set
+
+This analysis is **monotone** and **distributive**.
 
 ## Taint analysis
 
-## Faint variables
+| TODO add                                            |
+| ---------------------------------------------------------------- |
 
-## Same value analysi s
+## Same value analysis
+
+|                 | Same value analysis                                              |
+| --------------- | ---------------------------------------------------------------- |
+| Domain          | Sets of partitions of variables that have the same value         |
+| Direction       | forward                                                          |
+| Transfer f(x)   | **if x = y** ⇒ remove _x_ from it's block and add it to _y_ ; if **x = x + 1** Remove x from it's current block and place it in a new empty one     |
+| Meet            | the partition that places variables x and y in the same equivalence class if and only if both argument partitions place them in the same equivalence class.                                 |
+| Boundary        | in[Exit] initialized to top                                      |                                  
+| Initialization  | all interior nodes initialized to top                            |
+
+Meet example:
+````
+{{a,b,c},{d,e},{f}} /\ {{a,b},{c,d},{e,f}} = {{a,b},{c},{d},{e},{f}}.
+````
