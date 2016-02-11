@@ -152,10 +152,10 @@ Constant Propagation is **not distributive**. We prove that it's not distributiv
 ### Lock
 
 Analysis that execute warnings in the following cases:
-* Warning I: LOCK → LOCK. Issue a warning on a LOCK operation if it can potentially follow another LOCK operation.
-* Warning II: UNLOCK → UNLOCK. Issue a warning on an UNLOCK operation if it can potentially follow another UNLOCK operation.
-* Warning III: LOCK → EXIT Issue a warning on a LOCK operation if the program may terminate without performing an UNLOCK.
-* Warning IV: ENTRY → UNLOCK. Issue a warning on an UNLOCK operation if it may be executed before any LOCK operations.
+* **Warning I:** LOCK → LOCK. Issue a warning on a LOCK operation if it can potentially follow another LOCK operation.
+* **Warning II:** UNLOCK → UNLOCK. Issue a warning on an UNLOCK operation if it can potentially follow another UNLOCK operation.
+* **Warning III:** LOCK → EXIT Issue a warning on a LOCK operation if the program may terminate without performing an UNLOCK.
+* **Warning IV:** ENTRY → UNLOCK. Issue a warning on an UNLOCK operation if it may be executed before any LOCK operations.
 
 |                 | Locking                                                          |
 | --------------- | ---------------------------------------------------------------- |
@@ -173,6 +173,25 @@ Analysis that execute warnings in the following cases:
 **Note:** The following analysis covers the first 3 warnings. For warning IV we need to do a backward analysis or a different forward analysis. For example we could do an analysis that tags each LOCK statement and treats them like reaching definitions (issuing the warning if any LOCK operation reaches the exit block).
 
 Both analysis are **monotone** and **distributive**.
+
+###  Uninitialized variables
+
+|                 | Available expressions                                            |
+| --------------- | ---------------------------------------------------------------- |
+| Domain          | Sets of variables                                                |
+| Direction       | forwards                                                         |
+| Transfer f(x)   | **if x = u** ⇒ mark x as _defined_ **else** _check the table below_ |
+| Meet            | _see lattice_                                                    |
+| Boundary        | OUT[Entry] is an array with all variables initialized to **not used**|                                  
+| Initialization  | init all variables to **not used**                               |
+
+**Lattice**
+
+![uninitialized variables lattice](/images/UninitializedVariablesLattice.png)
+
+**Transfer Function** (continuation)
+
+![uninitialized variables transfer function](/images/UninitializedVariablesTF.png)
 
 ### Null check
 
