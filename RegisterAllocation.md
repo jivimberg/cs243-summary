@@ -32,3 +32,5 @@ If done (no node left)
 ```
 
 **If you get stuck** choose a node by heuristics (least frequently executed, has many neighbors) place v on stack and mark it to know that you may have to spill in that node. 
+
+The minimum number of registers needed to color an interference graph can be obtained by the **biggest clique**. A **clique** is a subset of vertices of an undirected graph, such that its induced subgraph is complete.
