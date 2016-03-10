@@ -15,7 +15,8 @@ We draw an edge to the interference graph if there are 2 overlaping **live range
 
 **Optimization:** Check for interference only at the start of each life range. This works even if the ranges overlap in the middle because if the variable was previously undefined we can assign any value to it.
 
-2 overlapping live ranges for the **same** variable must be merged (treated as the same live range)
+We can assign different registers for different live ranges of the same var. But **if 2 live ranges overlap** for the **same** variable must be merged (treated as the same live range).  
+In other words if var is live an there are multiple livereaching definitions then we merge.
 
 ## Coloring 
 
