@@ -10,19 +10,19 @@
 
 - **True dependence:** write → read (RAW hazard)
  
-  ```
-    a = ...
-    ... = a
-  ```
+ ```
+ a = ...
+ ... = a
+ ```
 - **Output dependence:** write → write (WAW hazard)
  
-  ```
-    a = ...
-    a = ...
-  ```
+ ```
+ a = ...
+ a = ...
+ ```
 - **Anti-dependence:** read → write (WAR hazard)
 
-  ```
-    ... = a
-    a = ...
-  ```
+ ```
+ ... = a
+ a = ...
+ ```
