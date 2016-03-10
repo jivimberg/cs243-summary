@@ -12,7 +12,11 @@
 
 ### Meet semi-lattice
 
+if x ≤ y ⇒ x ∧ y = x
+
 ![semilattice example](/images/semilatticeExample.png)
+
+⊥ ≤ T
 
 **Top element** _T_, suchthat x ∧ T =  x for all x.
 
@@ -35,7 +39,7 @@ If semilattice is too large you can do this:
 *  define semi-lattice for 1 element
 *  product of semi-lattices for all elements
 
-so <x1,x2> ≤ <y1,y2> iff x1 ≤ y1 and x2 ≤ y2
+so {x1,x2} ≤ {y1,y2} iff x1 ≤ y1 and x2 ≤ y2
 
 The **height** of a lattice is the largest number of relations that will fit in a descending chain.
 
@@ -85,7 +89,14 @@ If *distributive* ⇒ MOP = MFP
 
 ### About initialization
 
-//TODO complete
+For forward, distributive and finite descending chain
+If OUT[b] ⊥ for all nodes but entry:
+* Safe answer (values start ≤ MFP)
+* MOP solution for acyclic graphs 
+
+If OUT[Entry] T:
+* Safe answer
+* May yield MOP solution
 
 ## Speed
 
