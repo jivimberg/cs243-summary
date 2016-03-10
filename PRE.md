@@ -62,10 +62,18 @@ Eliminate temporary variable assignments unused beyond current block
 | --------------- | ---------------------------------------------------------------- |
 | Domain          | Sets of expressions                                              |
 | Direction       | backward                                                         |
-| Transfer f(x)   | f<sub>b</sub>(x) = (Euse[b] ∪ x) - latest[b])                    |
+| Transfer f(x)   | f<sub>b</sub>(x) = (Euse[b] ∪ x) - latest[b]) <sup>*</sup>       |
 | Meet            | ∪                                                                |
 | Boundary        | in[exit] = ∅                                                     |
 | Initialization  | in[b] = ∅                                                        |
+
+<sup>*</sup> In this case, if it is in the latest the use doesn't count
+
+```
+Remember: for y = x + y
+- When going backward the expression is first removed then added ⇒ ADDED
+- When going forward the expression is first added then removed ⇒ REMOVED
+```
 
 ### Code transformation
 
