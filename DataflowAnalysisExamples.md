@@ -127,12 +127,31 @@ Given an input set of variables keep everything the same but:
 * if x1 = x2 + x3: Add x2 and x3 to the set if x1 is in the set.  _Remove x1 from the set if present_.
 * if (x) goto L: Add x to the set
 
+**After running the analysis** we can remove the statement if the target variable **is not** in the variable set immediately after the statement.
+
 This analysis is **monotone** and **distributive**.
 
 ## Taint analysis
 
-| TODO add                                            |
-| ---------------------------------------------------------------- |
+|                 | Dead code elimination                                            |
+| --------------- | ---------------------------------------------------------------- |
+| Domain          | Sets of variables for each print                                 |
+| Direction       | backward                                                         |
+| Transfer f(x)   | _see below_                                                      |
+| Meet            | _see lattice_                                                    |
+| Boundary        | in[Exit] initialized to top (empty set)                          |                                  
+| Initialization  | all interior nodes initialized to top (empty set)                |
+
+**Transfer function** m' = f(m)
+* a = ... if a ∈ m, m' = m \ {a}
+* a = b if a ∈ m, m' = m \ {a} ∪ {b}
+* a = b + c if a ∈ m, m' \ {a} ∪ {b} ∪ {c}
+* a = read(), if a ∈ m, m' = m \ {a}
+* print(a), if this is the print I'm calculating m'= m ∪ {a}
+
+**After running the analysis** we go through the program one more time. For each INPUT if the var assigned by the input is in the variable set immediately after the INPUT for a PRINT we put the line number of the input on that PRINT. Then we issue warnings if there are variables on the set for each print.
+
+This analysis **converges** is **monotone** and **distributive**.
 
 ## Same value analysis
 
