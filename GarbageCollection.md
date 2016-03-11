@@ -32,3 +32,17 @@ We'd like to reclaim everything that is **dead**. But analysing that is hard, so
 | Procedure calls                                     | **entry:** add pointers to all incoming parameters (new pointers in the stackframe). <br> **exit:** Remove the pointers in the stackframe. We add a new pointer for the return value |
 
 **Once an object is unreachable, it stays unreachable for ever and ever!**
+
+### Reference counting 
+
+Free objects as they transition from reachable to unreachable **keeping count of pointers to each object**.
+
+When refrence count of an object = 0:
+* delete object
+* subtract reference counts of objects it points to
+* recurse if needed
+
+Not reachable ⇏ zero reference: Think in the case of a cyclic data structure that is no longer reachable.
+
+**Cost**: It's good that it reclaims the space as soon as the object is not reachable. But it adds an overhead for each
+statement that changes the ref. count
