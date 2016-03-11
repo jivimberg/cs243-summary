@@ -9,4 +9,6 @@ Winter 2016. Feel free to contribute!
 * [Loops](Loops.md)
 * [Partial Redundancy Elimination (PRE)](PRE.md)
 * [Register Allocation](RegisterAllocation.md)
+* [Instruction Scheduling](InstructionScheduling.md)
+* [Garbage Collection](GarbageCollection.md)
 
