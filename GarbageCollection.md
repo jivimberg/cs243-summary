@@ -46,3 +46,34 @@ Not reachable ⇏ zero reference: Think in the case of a cyclic data structure t
 
 **Cost**: It's good that it reclaims the space as soon as the object is not reachable. But it adds an overhead for each
 statement that changes the ref. count
+
+### Baker's algorithm 
+
+Assumes everything is not reachable unless proven otherwise. It's a stop-the-world type of GC
+
+![Baker's algorithm](/images/baker.png)
+
+### Frequency of GC
+
+Cost of reachability analysis: **depends on reachable objects**.
+Less frequent: **faster overall** but requires more memory.
+
+Performance metric
+
+|                             | Reference counting | Trace Based |
+| --------------------------- | ------------------ | ----------- |
+| Space reclaimed             |                    | :white_check_mark: |
+| Overall execution time      |                    | :white_check_mark: |
+| Space usage                 | :white_check_mark: |             |
+| Pause time                  | :white_check_mark: |             |
+| Program locality            |                    | **opportunity<sup>\*</sup>** |
+
+<sup>\*</sup> we can repack data because we calculate everything that is reachable
+
+### Copying collector
+
+Memory devided in 2 semi-spaces. When the semi-space is nearly full we invoke GC which copies reachable objects to the other space re-packing them. Note that when copying we also have to change all the pointer addresses.
+
+Same as baker algorithm but changes set representation. Now we use 3 pointers: scanned, unscanned and free.
+
+![copying collector](/images/copyingCollector.png)
