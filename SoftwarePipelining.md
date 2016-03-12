@@ -46,3 +46,32 @@ Label edges with <𝛿, d>
 ```
 
 Cycles in the dependence graph mean that now you're bound on both ends. You can't stretch T arbitrarily 
+
+**Algorithm for bound on Initiation Interval based on precedence**
+```
+for all cycles c,
+  max<sub>c</sub> CycleLength(c) / Iteration difference(c)
+```
+
+### Algorithm for Acyclic graphs
+
+```
+Find lower bound of initiation interval: T<sub>0</sub>
+  based on resource constraints
+
+For T = T<sub>0</sub>, T<sub>0</sub> + 1, ... until all nodes are scheduled
+  For each node n in topological order
+    s<sub>0</sub> = earliest n can be scheduled
+    for each s = s<sub>0</sub>, s<sub>0</sub> + 1
+      if NodeScheduled(n, s) break;
+    if n cannot be scheduled break;
+    
+NodeScheduled(n, s)
+  Check resources of n at s in modulo reservation table
+```
+
+If your loop is such that:
+* Every operation uses only 1 resource
+* There are no cyclic dependencies on the loop
+
+**You can always meet the lower bound.** You just keep stretching the cycle until you pack them all in.
