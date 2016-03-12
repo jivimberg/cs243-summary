@@ -77,3 +77,34 @@ Memory devided in 2 semi-spaces. When the semi-space is nearly full we invoke GC
 Same as baker algorithm but changes set representation. Now we use 3 pointers: scanned, unscanned and free.
 
 ![copying collector](/images/copyingCollector.png)
+
+### Incremental GC
+
+Interleaves GC with mutator action to reduce pause time
+
+![incremental GC](/images/incrementalGC.png)
+
+May misclassify some **unreachable as reachable** (this is safe)
+
+```
+Ideal = (R ∪ New) - Lost ⊆ Anser ⊆ (R ∪ New)
+```
+
+**To resume GC **
+* Find root sets
+* Place newly reached objects in "unnscanned list"
+* Continue to trace reachability without redoing scanned objects
+
+** But this doesn't find all the reachable objects!** 
+
+![missed reachable objects](/images/missedReachableObjects.png)
+
+**Solution** Intercept p in any of the 3 steps.
+* Read barrier: Remember all loads of pointers from B → C
+* Write barrier: Remember all stores of pointers from A → C
+* Overwrite barrier: Remember all orverwrites from B → C
+
+**The most efficient is the write barrier.** Because writes are less frequent than reads. And it includes less unreachable objects than over-write barriers
+
+### Generational GC
+
