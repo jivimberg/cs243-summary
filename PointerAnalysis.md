@@ -42,3 +42,33 @@ In a program you can have:
 3. Then as a whole
 
 This is just an optimization. You can execute them in any order and it'll work.
+
+#### Virtual method invocation
+
+**Class hierarchy analysis cha(t,n,m)**:
+* Given an invocation v.n(...), if v points to object of type t, then m is the method invoked
+* m is in t's first superclass that defines n
+* _Optimization:_ if you know that the program only allocates on type of object then you don't have to do cha
+
+Can be computed statically from the definitions!
+
+#### We can use the Pointer analysis information to improve the Call Graphs
+
+If you know the type of the object you can know exactly with method is being called and runtime and shave off impossible relationships.
+
+![Call Graph Improved](/images/callGraphImproved.png)
+
+### Context-Sensitive Pointer analysis
+
+Without context sensitivity more or less is like doing type analysis: _"this are the kinds of types that can be passed in"_
+
+**# of contexts is exponential!** (even without recursion)
+
+![Context explosion](/images/contextExplosion.png)
+
+**How we handle recursion:** 
+1. Figure out which are the recursive cycles 
+2. Expand the graph but treat each recursive unit as an instance. Meaning if you have N different ways of calling the cycle then you'll have 3 different instances.
+3. Note that you'll also have to copy the things that the recursive unit references
+
+![Handling recursion](/images/handlingRecursion.png)
