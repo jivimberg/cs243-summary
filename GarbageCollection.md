@@ -108,3 +108,20 @@ Ideal = (R ∪ New) - Lost ⊆ Anser ⊆ (R ∪ New)
 
 ### Generational GC
 
+Exploits the property that **most objects die young.**
+
+```
+Separate heaps in partitions, numbering them from 0 to n with. Lower numbered partitions hold younger objects. We allocate new objects on partiton 0.
+
+GC
+1. When partition 0 fills up we run GC and the surviving objects are moved into partition 1
+2. Repeat step 1 until partition 1 fills up.
+3. GC 0 and 1 (and move surviving objects from 0 to 1 and from 1 to 2).
+4. Keep going...
+```
+
+The root set for a partial collection invoked on set i includes the remembered sets for partition i and below. That is a list of objects from partitions above i that points to objects in i.
+
+**May misclassify unreachable as reachable:** When pointers in earlier generations are overwritten
+
+It's effective because time is spent on objects that are mostly garbage (young objects). Eventually a full GC is performed.
