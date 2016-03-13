@@ -11,5 +11,6 @@ Winter 2016. Feel free to contribute!
 * [Register Allocation](RegisterAllocation.md)
 * [Instruction Scheduling](InstructionScheduling.md)
 * [Software Pipelining](SoftwarePipelining.md)
+* [Dynamic Compilation](DynamicCompilation.md)
 * [Garbage Collection](GarbageCollection.md)
 
