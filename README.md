@@ -10,5 +10,6 @@ Winter 2016. Feel free to contribute!
 * [Partial Redundancy Elimination (PRE)](PRE.md)
 * [Register Allocation](RegisterAllocation.md)
 * [Instruction Scheduling](InstructionScheduling.md)
+* [Software pipelining](SoftwarePipelining.md)
 * [Garbage Collection](GarbageCollection.md)
 
