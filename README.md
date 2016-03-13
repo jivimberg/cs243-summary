@@ -14,5 +14,6 @@ Winter 2016. Feel free to contribute!
 * [Dynamic Compilation](DynamicCompilation.md)
 * [Pointer Analysis](PointerAnalysis.md)
 * [BDDs](BDDs.md)
+* [Parallelization](Parallelization.md)
 * [Garbage Collection](GarbageCollection.md)
 
