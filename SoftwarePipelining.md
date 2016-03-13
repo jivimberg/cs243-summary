@@ -108,3 +108,25 @@ SCCScheduled (c, s)
     if n cannot be scheduled return false;
   Return true;
 ```
+
+### Modulo variable expansion
+
+We have a problem when the lifetime of an operation that uses a register is greater than the initiation interval. Suddenly we created a dependency between the difference iterations.
+
+The solution is to unroll the steady state to make it use different registers in each iteration.
+
+If lifetime of r is greater than T you have an **artificial antidependency**
+
+**Algorithm**
+```
+1. Schedule iterations ignoring artificial constraits on registers
+2. Calculate life time of registers
+3. Degree of unrolling = max<sub>r</sub> (lifetime<sub>r</sub> / T). Take the max from all variables
+3. Unroll the steady state of software pipelined loop to use different registers
+
+Code generation
+1. Generate one pipelined loop with only one exit (at beginning of steady state)
+2. Generate one unpipelined loop to handle the rest of the code. 
+```
+
+//TODO check if then else sofware pipelining
