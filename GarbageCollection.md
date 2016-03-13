@@ -111,7 +111,9 @@ Ideal = (R ∪ New) - Lost ⊆ Anser ⊆ (R ∪ New)
 Exploits the property that **most objects die young.**
 
 ```
-Separate heaps in partitions, numbering them from 0 to n with. Lower numbered partitions hold younger objects. We allocate new objects on partiton 0.
+Separate heaps in partitions, numbering them from 0 to n with. 
+Lower numbered partitions hold younger objects. 
+We allocate new objects on partiton 0.
 
 GC
 1. When partition 0 fills up we run GC and the surviving objects are moved into partition 1
