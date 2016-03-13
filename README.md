@@ -12,5 +12,7 @@ Winter 2016. Feel free to contribute!
 * [Instruction Scheduling](InstructionScheduling.md)
 * [Software Pipelining](SoftwarePipelining.md)
 * [Dynamic Compilation](DynamicCompilation.md)
+* [Pointer Analysis](PointerAnalysis.md)
+* [BDDs](BDDs.md)
 * [Garbage Collection](GarbageCollection.md)
 
