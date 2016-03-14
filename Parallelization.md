@@ -64,3 +64,63 @@ Hence we need to parallelise at the coarsest granularity (outer loops) minimizin
 
 :pencil2: //TODO understand intraprocedural parallelization
 
+## Loop transformations for Parallelism and Locality
+
+Parallelism is NOT enough. We also need to improve locality: Operations using the same data are executed on the same processor. 
+
+Locality is _also important in sequential performance_ where operations using the same data are executed close in time, that way you take advantage of the cache.
+
+### Loop permutation
+
+![Loop permutation](/images/loopPermutation.png)
+
+From inner loop parallel code to outer loop parallel code without communication
+
+### Loop fusion
+
+![Loop fusion](/images/loopFusion.png)
+
+### Loop transformations
+
+Unimodular on loop nests:
+* Permutation
+* Skewing
+* Reversal
+
+Cross statement transforms
+* Loop fusion
+* Loop fission
+* Re-indexing
+
+You can combine all of the above.
+
+## Maximum Parallelism & No Communication
+
+![Max parallelism No communication](/images/maxParallelismNoCommunication.png)
+
+**Rank of partitioning = Degree of parallelism**
+
+The constant term is used to move the indexes sideways to make them match. This is used in the cross statement transforms
+
+### Code generation
+
+**Naive:** Each processor visits all the iterations and executes only if it owns that iteration.
+**Optimization:** Removes unnecessary looping and condition evaluation.
+
+### Advanced topic: Pipelining
+
+SOR = Successive over-relaxation.
+
+![SOR](/images/SOR.png)
+
+Using affine function will tell us send everything to the same processor.
+
+Since we can order the execution either horizontally or vertically we know that we can advanced as a wave-front.
+
+Now we try to find the legal way of executing the code in different time stages.
+
+![SOR Pipelining](/images/SORPipelining.png)
+
+When you have a choice in time mapping you have (pipelined) parallelism
+
+If you give me a Rank(C) answer then there are Rank(C) - 1 degrees of parallelism
